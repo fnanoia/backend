@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "kali"
+    },
+    {
+      "id": 2,
+      "name": "ubuntu"
+    },
+    {
+      "id": 4,
+      "name": "popOS"
+    },
+    {
+      "id": 5,
+      "name": "arch"
+    },
+    {
+      "id": 6,
+      "name": "manjaro"
+    }
+  ]
+}
