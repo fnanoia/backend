@@ -48,7 +48,7 @@ class Container {
     try {
       const data = await fs.promises.readFile(this.fileDir, "utf-8");
       const parsedData = JSON.parse(data);
-      console.log(parsedData.products);
+      return parsedData.products;
     } catch (error) {
       console.error(error);
     }
@@ -86,6 +86,9 @@ const test = new Container("./desafio2/files.json")
 
   //.save({"name": "manjaro"})
   //.getById(1);
-  .getAll();
+  //.getAll();
 //.deleteById(3)
 //.deleteAll()
+
+
+module.exports = Container;
