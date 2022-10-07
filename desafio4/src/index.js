@@ -1,7 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const productRoutes = require("./routes/product-routes");
-const bodyparser = require("body-parser");
 
 //basic config
 dotenv.config();
@@ -13,7 +12,6 @@ const app = express();
 const PORT = process.env.PORT;
 
 //middlewares
-app.use(bodyparser.json())
 app.use(express.json());
 app.use("/api", productRoutes);
 
