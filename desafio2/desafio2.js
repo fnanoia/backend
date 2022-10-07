@@ -38,7 +38,7 @@ class Container {
 
       const parseData = JSON.parse(data);
       const findData = parseData.products.find((x) => x.id === id);
-      console.log(findData);
+      return findData;
     } catch (error) {
       console.error(error);
     }
@@ -49,6 +49,37 @@ class Container {
       const data = await fs.promises.readFile(this.fileDir, "utf-8");
       const parsedData = JSON.parse(data);
       return parsedData.products;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async updateById(id, object) {
+    try {
+      const data = await fs.promises.readFile(this.fileDir, "utf-8");
+      const parsedData = JSON.parse(data);
+
+      //encuentro por id
+      const findData = parsedData.products.find((x) => x.id === id);
+      
+      //sobreescribo el objeto
+      const newObject = { id: findData.id, ...object };
+
+      //elimino el objeto antiguo
+      parsedData.products.splice(findData.id - 1, 1);
+
+      //agrego el nuevo objeto
+      parsedData.products.push(newObject);
+
+      //ordeno el array por id ascendente
+      parsedData.products.sort((a, b) => a.id - b.id);
+
+      //sobreescribo archivo con nueva data que incluye al objeto
+      await fs.promises.writeFile(
+        this.fileDir,
+        JSON.stringify(parsedData, null, 2)
+      );
+      console.log("data updated successfully");
     } catch (error) {
       console.error(error);
     }
@@ -82,13 +113,13 @@ class Container {
   }
 }
 
-const test = new Container("./desafio2/files.json")
+const test = new Container("./desafio2/files.json");
 
   //.save({"name": "manjaro"})
   //.getById(1);
   //.getAll();
-//.deleteById(3)
-//.deleteAll()
-
+  //.deleteById(3)
+  //.deleteAll()
+  //.updateById(5, { name: "black arch" });
 
 module.exports = Container;

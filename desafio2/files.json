@@ -9,16 +9,16 @@
       "name": "ubuntu"
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "popOS"
     },
     {
-      "id": 5,
-      "name": "arch"
+      "id": 4,
+      "name": "manjaro"
     },
     {
-      "id": 6,
-      "name": "manjaro"
+      "id": 5,
+      "name": "black arch"
     }
   ]
 }
