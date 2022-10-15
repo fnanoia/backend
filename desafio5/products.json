@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Mouse",
+      "price": 200,
+      "url": "https://cdn-icons-png.flaticon.com/512/1786/1786973.png"
+    },
+    {
+      "id": 2,
+      "name": "Teclado",
+      "price": "500",
+      "url": "https://cdn-icons-png.flaticon.com/512/689/689392.png"
+    },
+    {
+      "id": 3,
+      "name": "Monitor",
+      "price": "1000",
+      "url": "https://cdn-icons-png.flaticon.com/512/3076/3076345.png"
+    }
+  ]
+}

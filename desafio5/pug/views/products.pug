@@ -1,0 +1,17 @@
+html
+    head
+        title="Catalogo"
+    body 
+    h1 Catalogo de productos
+    if products.length > 0
+        each product in products
+            table
+                tr 
+                    th 
+                        td=product.name
+                        td=product.price
+                        td
+                            img(src=product.url width=50 px)
+    else 
+        h2 No hay productos
+    a(href="/") Home

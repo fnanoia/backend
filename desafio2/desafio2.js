@@ -10,7 +10,7 @@ class Container {
       const data = await fs.promises.readFile(this.fileDir, "utf-8");
       //parseo json para trabajar con array
       const parsedData = JSON.parse(data);
-      console.log(parsedData.products);
+      //console.log(parsedData.products);
 
       //obtengo el id del ultimo elemento del array
       const dataIndex = parsedData.products.length;
@@ -19,7 +19,7 @@ class Container {
       //agrego el nuevo objeto
       const newObject = { id: newId + 1, ...object };
       parsedData.products.push(newObject);
-      console.log(parsedData);
+      //console.log(parsedData);
 
       //sobreescribo archivo con nueva data que incluye al objeto
       await fs.promises.writeFile(
