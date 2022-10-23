@@ -28,8 +28,7 @@ productRoutes.post("/productos", async (req, res) => {
     };
 
     saveProduct(newProduct);
-    console.log(newProduct);
-
+    
     return res.redirect("/");
   } catch (error) {
     res.send(error);

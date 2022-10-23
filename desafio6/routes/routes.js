@@ -5,8 +5,9 @@ const productRoutes = Router();
 
 //home
 productRoutes.get("/", async (req, res) => {
+  const productos = await getAll();
   try {
-    res.render("home.pug",{message: "PUG template"});
+    res.render("home", { products: productos });
   } catch (error) {
     res.send(error);
   }
@@ -14,10 +15,11 @@ productRoutes.get("/", async (req, res) => {
 
 productRoutes.get("/productos", async (req, res) => {
   const productos = await getAll();
-  res.render("products.pug", { products: productos });
+  res.render("products", { products: productos });
 });
 
 productRoutes.post("/productos", async (req, res) => {
+  
   try {
     const { name, price, url } = req.body;
 
@@ -29,7 +31,7 @@ productRoutes.post("/productos", async (req, res) => {
 
     saveProduct(newProduct);
     
-    return res.redirect("/");
+    res.redirect("/");
   } catch (error) {
     res.send(error);
   }
