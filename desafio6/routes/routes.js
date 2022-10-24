@@ -19,7 +19,7 @@ productRoutes.get("/productos", async (req, res) => {
 });
 
 productRoutes.post("/productos", async (req, res) => {
-  
+  console.log(req.body);
   try {
     const { name, price, url } = req.body;
 
