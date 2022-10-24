@@ -1,3 +1,15 @@
-#datamail{
+#data__mail{
+    font-weight: bold;
     color: blue;
+}
+#data__date{
+    color: brown;
+}
+#data__msg{
+    font-style: italic;
+    color: green;
+}
+#form, #chat__container{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

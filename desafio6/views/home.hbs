@@ -1,7 +1,11 @@
-<h1>Handlebars app</h1>
+
 {{> form }}
 {{#if products.length}}
-<table id="render"></table> 
+<div class="container">
+    <h2>Catalogo</h2>
+
+<table class="table table-success table-striped" id="render"></table> 
+</div>
 {{else}}
 <h2>No hay productos</h2>
 {{/if}}

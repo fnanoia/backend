@@ -26,20 +26,32 @@ socket.on("msgFromServer", (data) => {
 submit.addEventListener("click", (e) => {
   e.preventDefault();
   socket.emit("formData", newProductfromFront);
-  form.reset();
+  form.innerHTML= `
+  <form id="form">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" required/>
+    <label for="price">Precio</label>
+    <input type="text" id="price" name="price" required/>
+    <label for="url">URL</label>
+    <input type="text" id="url" name="url" required/> 
+    <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
+</form>
+  `;
 });
 
 //escuchar socket emitido desde el serv. recibe data para renderizar en tiempo real
 socket.on("renderData", (productos) => {
   let table = `
-  <table id="table">
+  
+  <table class="table table-success table-striped" id="render">
   <tr>
     <th>Id</th>
     <th>Producto</th>
     <th>Precio</th>
     <th>Imagen</th>
   </tr>
-  </table> 
+  </table>
+  
   `;
   productos.forEach((producto) => {
     table =
@@ -57,20 +69,22 @@ socket.on("renderData", (productos) => {
   render.innerHTML = table;
 });
 
-
 //chat
 enviar.addEventListener("click", function () {
   socket.emit("chat", {
     msg: msg.value,
     mail: mail.value,
-    date: new Date(),
+    date: new Date().toLocaleString().replace("AM", "").replace("PM", ""),
   });
 });
 
 socket.on("chat", (data) => {
   chat.innerHTML += `
   <div>
-  <p id="datamail">${data.mail}${data.date}:${data.msg}
+  <p>
+  <span id="data__mail">${data.mail}</span>[
+  <span id="data__date">${data.date}</span>]:
+  <span id="data__msg">${data.msg}</span>
   </p>
   </div>
   `;
