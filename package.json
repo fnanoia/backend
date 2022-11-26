@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon desafio8/index.js",
+    "start": "nodemon desafio9/index.js",
     "create-tables": "node desafio8/utils/tables.js"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "express-handlebars": "^6.0.6",
     "knex": "^2.3.0",
     "mysql": "^2.18.1",
+    "normalizr": "^3.6.2",
     "path": "^0.12.7",
     "pug": "^3.0.2",
     "socket.io": "^4.5.3",

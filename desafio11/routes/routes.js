@@ -33,9 +33,4 @@ productRoutes.post("/", async (req, res) => {
   }
 });
 
-//faker.js
-productRoutes.get("/product-test", async (req, res) =>{
-  
-})
-
 module.exports = productRoutes;
