@@ -13,6 +13,7 @@ const msg = document.getElementById("msg");
 const enviar = document.getElementById("enviar");
 
 let user;
+/*
 Swal.fire({
   title: "Formulario perfil",
   html: `<input type="text" id="email" class="swal2-input" placeholder="Correo">
@@ -40,6 +41,7 @@ Swal.fire({
   );
   user = result.value;
 });
+*/
 
 //enviar formulario
 form.addEventListener("submit", (e) => {

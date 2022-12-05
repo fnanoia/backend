@@ -1,0 +1,14 @@
+{{#if username}}
+  
+
+<h1>bienvenido {{username}}</h1>
+
+<div class="container">
+<form id="logout_form" method="get" action="/logout">
+    <button type="submit" id="logout_btn" class="btn btn-secondary">Cerrar sesion</button>
+</form>
+</div>
+
+{{else}}
+<h2>por favor inicie sesion</h2>
+{{/if}}

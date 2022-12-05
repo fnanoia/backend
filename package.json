@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon desafio9/index.js",
+    "start": "nodemon desafio12/index.js",
     "create-tables": "node desafio8/utils/tables.js"
   },
   "repository": {
@@ -20,11 +20,14 @@
   "homepage": "https://github.com/fnanoia/backend#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
     "knex": "^2.3.0",
     "mysql": "^2.18.1",
     "normalizr": "^3.6.2",

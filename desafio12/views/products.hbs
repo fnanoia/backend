@@ -1,0 +1,24 @@
+{{#if products}}
+<div class="container">
+    <h2>Catalogo</h2>
+
+<table class="table table-success table-striped">
+    <tr>
+    <th>Id</th>
+    <th>Producto</th>
+    <th>Precio</th>
+    <th>Imagen</th>
+  </tr>
+  {{#each products}}
+  <tr>
+    <td>{{this.id}}</td>
+    <td>{{this.name}}</td>
+    <td>{{this.price}}</td>
+    <td><img src="{{this.url}}" width="50px"/></td>
+  </tr>
+  {{/each}}
+</table> 
+</div>
+{{else}}
+<h2>No hay productos</h2>
+{{/if}}

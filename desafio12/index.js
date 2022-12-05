@@ -2,8 +2,9 @@ const express = require("express");
 const { engine } = require("express-handlebars");
 const { Server } = require("socket.io");
 const { schema, normalize } = require("normalizr");
-
-const productRoutes = require("./routes/routes");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 //contenedores y db config
 const MySqlContainer = require("./utils/mysql-container");
@@ -12,7 +13,7 @@ const options = require("./config/db-config");
 
 //instancia de clases
 const productServices = new MySqlContainer(options.mariaDB, "productos");
-const chatServices = new chatContainer("./desafio11/files/chat.txt");
+const chatServices = new chatContainer("./desafio12/files/chat.txt");
 
 //schemas
 const authorSchema = new schema.Entity("authors", {}, { idAttribute: "email" });
@@ -46,12 +47,31 @@ const port = 3000;
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+//sessions
+app.use(
+  session({
+    store: MongoStore.create({
+      mongoUrl:
+        "mongodb+srv://fnanoia:HhbPWwvPWWgVyW1P@cluster0.ipvsy.mongodb.net/?retryWrites=true&w=majority",
+      dbName: "coder-sessions",
+    }),
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 20000,
+    },
+  })
+);
+
 //use static
 app.use(express.static("public"));
 
 //set engine and configs
 app.engine("hbs", engine({ extname: ".hbs" }));
-app.set("views", "./desafio11/views");
+app.set("views", "./desafio12/views");
 app.set("view engine", "hbs");
 
 //basic routes
@@ -65,7 +85,25 @@ app.get("/productos", async (req, res) => {
   res.render("products", { products: productos });
 });
 
+//auth routes
+app.get("/login", async (req, res) => {
+  res.render("login");
+});
+
+//login
+app.post("/login", async (req, res) => {
+  const { username } = req.body
+  res.render("profile", {username: username});
+});
+
+//logut
+app.get("/logout",(req,res)=>{
+  req.session.destroy();
+  res.redirect("/login")
+});
+
 //api routes
+const productRoutes = require("./routes/routes");
 app.use("/api", productRoutes);
 
 //init server w/listener
