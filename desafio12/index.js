@@ -54,7 +54,7 @@ app.use(
   session({
     store: MongoStore.create({
       mongoUrl:
-        "mongodb+srv://fnanoia:HhbPWwvPWWgVyW1P@cluster0.ipvsy.mongodb.net/?retryWrites=true&w=majority",
+        process.env.DB_URI,
       dbName: "coder-sessions",
     }),
     secret: "secret",

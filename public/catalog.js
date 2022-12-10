@@ -1,3 +1,4 @@
+/*
 const socket = io();
 
 //dom elements
@@ -13,7 +14,7 @@ const msg = document.getElementById("msg");
 const enviar = document.getElementById("enviar");
 
 let user;
-/*
+
 Swal.fire({
   title: "Formulario perfil",
   html: `<input type="text" id="email" class="swal2-input" placeholder="Correo">
@@ -41,7 +42,6 @@ Swal.fire({
   );
   user = result.value;
 });
-*/
 
 //enviar formulario
 form.addEventListener("submit", (e) => {
@@ -74,45 +74,46 @@ const authorSchema = new normalizr.schema.Entity(
   "authors",
   {},
   { idAttribute: "email" }
-);
-const messageSchema = new normalizr.schema.Entity("message", { author: authorSchema });
-const chatSchema = new normalizr.schema.Entity(
-  "chat",
-  { messages: [messageSchema] },
-  { idAttribute: "id" }
-);
-
-//chat
-socket.on("msg", async (data) => {
- 
-  const normalData = normalizr.denormalize(
-    data.result,
-    chatSchema,
-    data.entities
   );
-  
-  let msgElements = "";
-  normalData.messages.forEach((msg) => {
-    msgElements += `
-    <div>
-    <p>
-    <span id="data__mail">${msg.author.name}</span>[
-      <span id="data__date">${msg.timestamp}</span>]:
-      <span id="data__msg">${msg.message}</span>
-    </p>
-    </div>
-      `;
-  });
-  chat.innerHTML = normalData.messages.length > 0 ? msgElements : "";
-
-});
-
-//enviar msj
-enviar.addEventListener("click", () => {
-  socket.emit("newMsg", {
-    author: user,
-    timestamp: new Date().toLocaleString().replace("AM", "").replace("PM", ""),
-    message: msg.value,
-  });
-  msg.value = "";
-});
+  const messageSchema = new normalizr.schema.Entity("message", { author: authorSchema });
+  const chatSchema = new normalizr.schema.Entity(
+    "chat",
+    { messages: [messageSchema] },
+    { idAttribute: "id" }
+    );
+    
+    //chat
+    socket.on("msg", async (data) => {
+      
+      const normalData = normalizr.denormalize(
+        data.result,
+        chatSchema,
+        data.entities
+        );
+        
+        let msgElements = "";
+        normalData.messages.forEach((msg) => {
+          msgElements += `
+          <div>
+          <p>
+          <span id="data__mail">${msg.author.name}</span>[
+            <span id="data__date">${msg.timestamp}</span>]:
+            <span id="data__msg">${msg.message}</span>
+            </p>
+            </div>
+            `;
+          });
+          chat.innerHTML = normalData.messages.length > 0 ? msgElements : "";
+          
+        });
+        
+        //enviar msj
+        enviar.addEventListener("click", () => {
+          socket.emit("newMsg", {
+            author: user,
+            timestamp: new Date().toLocaleString().replace("AM", "").replace("PM", ""),
+            message: msg.value,
+          });
+          msg.value = "";
+        });
+*/
