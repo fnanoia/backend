@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon desafio13/index.js",
+    "start": "nodemon desafio14/index.js",
     "create-tables": "node desafio8/utils/tables.js"
   },
   "repository": {
@@ -37,8 +37,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pug": "^3.0.2",
-    "socket.io": "^4.5.3",
-    "sqlite3": "^4.2.0"
+    "socket.io": "^4.5.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
