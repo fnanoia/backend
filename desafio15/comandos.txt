@@ -1,0 +1,24 @@
+# Script inicial con modulo nodemon
+npm run start
+
+# forever 
+INICIAR SERVER: forever start desafio15/index.js
+COMPROBAR EJECUCION: forever list (aca obtenemos el $PROCESS_ID)
+DETENER SERVER: forever stop $PROCESS_ID
+
+# pm2
+FORK: pm2 start desafio15/index.js --name="Server1" --watch -- 8081
+CLUSTER: pm2 start desafio15/index.js --name="Server2" --watch -i max -- 8082
+COMPROBAR EJECUCION: pm2 list
+FINALIZAR EJECUCION: pm2 delete all
+
+# Nginx
+COMPROBAR CONFIG: sudo nginx -s reload t
+RECARGAR NGINX: sudo nginx -s reload
+
+HEALTHCHECK: http://localhost:81/
+EJEMPLO DE RUTA: http://localhost:81/api/randoms?cant=5
+
+COMPROBAR BALANCEADOR DE CARGA DEL SERVIDOR: pm2 monit
+recargar la ruta de ejemplo y ver los logs
+las consultas deberian estar redirigiendose segun el peso de la configuracion a los servers Fork y Cluster
