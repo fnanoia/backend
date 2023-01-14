@@ -1,0 +1,15 @@
+# Estructura de archivos de configuracion de nginx(OS: GNU/Linux)
+
+# Directorios y sub-directorios de nginx
+
+> /etc/nginx/
+    > nginx.conf
+    > /etc/nginx/sites-available
+        > nodeApp
+    > /etc/nginx/sites-enabled
+        > nodeApp
+
+# Directorio de archivos publicos
+
+> /var/www/nodeApp
+    > index.html
