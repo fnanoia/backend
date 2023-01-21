@@ -1,0 +1,627 @@
+Statistical profiling result from fork-v8.log, (1644 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   1166   70.9%          /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+     31    1.9%          /usr/lib/x86_64-linux-gnu/libc-2.31.so
+      5    0.3%          /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      6    0.4%    1.4%  LazyCompile: *resolve node:path:1091:10
+      2    0.1%    0.5%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:676:37
+      2    0.1%    0.5%  Function: ^dirname node:path:1275:10
+      2    0.1%    0.5%  Function: ^compileFunction node:vm:316:25
+      1    0.1%    0.2%  Function: ^validateNumber node:internal/validators:176:24
+      1    0.1%    0.2%  Function: ^update /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology_description.js:131:11
+      1    0.1%    0.2%  Function: ^trySelf node:internal/modules/cjs/loader:488:17
+      1    0.1%    0.2%  Function: ^toNamespacedPath node:path:1266:19
+      1    0.1%    0.2%  Function: ^parseFileMode node:internal/validators:70:23
+      1    0.1%    0.2%  Function: ^onwrite node:internal/streams/writable:428:17
+      1    0.1%    0.2%  Function: ^normalizeString node:path:66:25
+      1    0.1%    0.2%  Function: ^noop node:internal/util/debuglog:47:14
+      1    0.1%    0.2%  Function: ^insert node:internal/timers:355:16
+      1    0.1%    0.2%  Function: ^getOptionValue node:internal/options:44:24
+      1    0.1%    0.2%  Function: ^getEncodingOps node:buffer:684:24
+      1    0.1%    0.2%  Function: ^deserializeObject /home/cisc0/Code/backend/node_modules/bson/lib/parser/deserializer.js:65:27
+      1    0.1%    0.2%  Function: ^_copyActual node:buffer:247:21
+      1    0.1%    0.2%  Function: ^_copy node:buffer:205:15
+      1    0.1%    0.2%  Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    0.1%    0.2%  Function: ^Long.not /home/cisc0/Code/backend/node_modules/bson/lib/long.js:623:35
+      1    0.1%    0.2%  Function: ^FastBuffer node:internal/buffer:958:14
+
+ [C++]:
+   ticks  total  nonlib   name
+    248   15.1%   56.1%  epoll_pwait@@GLIBC_2.6
+     61    3.7%   13.8%  __write@@GLIBC_2.2.5
+     35    2.1%    7.9%  fwrite@@GLIBC_2.2.5
+     10    0.6%    2.3%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+     10    0.6%    2.3%  _IO_file_xsputn@@GLIBC_2.2.5
+      8    0.5%    1.8%  __pthread_cond_signal
+      6    0.4%    1.4%  __libc_malloc@@GLIBC_2.2.5
+      4    0.2%    0.9%  __pthread_mutex_unlock_usercnt
+      3    0.2%    0.7%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+      3    0.2%    0.7%  memcpy@GLIBC_2.2.5
+      3    0.2%    0.7%  cfree@GLIBC_2.2.5
+      3    0.2%    0.7%  __pthread_cond_wait
+      3    0.2%    0.7%  __lll_lock_wait
+      2    0.1%    0.5%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      2    0.1%    0.5%  __mprotect@@GLIBC_PRIVATE
+      1    0.1%    0.2%  std::ostream::sentry::~sentry()@@GLIBCXX_3.4
+      1    0.1%    0.2%  std::ostream& std::ostream::_M_insert<long>(long)@@GLIBCXX_3.4.9
+      1    0.1%    0.2%  std::__detail::_Prime_rehash_policy::_M_next_bkt(unsigned long) const@@GLIBCXX_3.4.18
+      1    0.1%    0.2%  std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      1    0.1%    0.2%  operator new[](unsigned long)@@GLIBCXX_3.4
+      1    0.1%    0.2%  __madvise@@GLIBC_PRIVATE
+      1    0.1%    0.2%  __GI___pthread_rwlock_wrlock
+      1    0.1%    0.2%  __GI___pthread_rwlock_rdlock
+      1    0.1%    0.2%  __GI___pthread_mutex_lock
+      1    0.1%    0.2%  __GI___pthread_mutex_destroy
+      1    0.1%    0.2%  _IO_file_sync@@GLIBC_2.2.5
+      1    0.1%    0.2%  _IO_default_xsputn@@GLIBC_2.2.5
+
+ [Summary]:
+   ticks  total  nonlib   name
+     29    1.8%    6.6%  JavaScript
+    413   25.1%   93.4%  C++
+     46    2.8%   10.4%  GC
+   1202   73.1%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+     49   39.2%    3.0%  __write@@GLIBC_2.2.5
+     30   24.0%    1.8%  fwrite@@GLIBC_2.2.5
+     10    8.0%    0.6%  _IO_file_xsputn@@GLIBC_2.2.5
+      8    6.4%    0.5%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@@GLIBCXX_3.4.9
+      5    4.0%    0.3%  __libc_malloc@@GLIBC_2.2.5
+      3    2.4%    0.2%  memcpy@GLIBC_2.2.5
+      2    1.6%    0.1%  std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const@@GLIBCXX_3.4
+      2    1.6%    0.1%  std::ostream::sentry::sentry(std::ostream&)@@GLIBCXX_3.4
+      2    1.6%    0.1%  cfree@GLIBC_2.2.5
+      2    1.6%    0.1%  __lll_lock_wait
+      1    0.8%    0.1%  std::ostream::sentry::~sentry()@@GLIBCXX_3.4
+      1    0.8%    0.1%  std::__detail::_Prime_rehash_policy::_M_next_bkt(unsigned long) const@@GLIBCXX_3.4.18
+      1    0.8%    0.1%  std::_Rb_tree_insert_and_rebalance(bool, std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, std::_Rb_tree_node_base&)@@GLIBCXX_3.4
+      1    0.8%    0.1%  operator new[](unsigned long)@@GLIBCXX_3.4
+      1    0.8%    0.1%  __pthread_mutex_unlock_usercnt
+      1    0.8%    0.1%  __pthread_cond_signal
+      1    0.8%    0.1%  __mprotect@@GLIBC_PRIVATE
+      1    0.8%    0.1%  __madvise@@GLIBC_PRIVATE
+      1    0.8%    0.1%  __GI___pthread_rwlock_wrlock
+      1    0.8%    0.1%  __GI___pthread_mutex_lock
+      1    0.8%    0.1%  _IO_file_sync@@GLIBC_2.2.5
+      1    0.8%    0.1%  _IO_default_xsputn@@GLIBC_2.2.5
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1166   70.9%  /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+    944   81.0%    /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+    454   48.1%      Function: ^compileFunction node:vm:316:25
+    450   99.1%        Function: ^wrapSafe node:internal/modules/cjs/loader:1073:18
+    449   99.8%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+    433   96.4%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+     16    3.6%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+     57    6.0%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+     41   71.9%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:353:29
+      8   19.5%          Function: ~<anonymous> node:http:1:1
+      8  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      6   14.6%          Function: ~<anonymous> node:_http_client:1:1
+      6  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      5   12.2%          Function: ~<anonymous> node:tls:1:1
+      5  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    4.9%          LazyCompile: ~lazyWebCrypto node:crypto:125:23
+      2  100.0%            LazyCompile: ~get node:crypto:369:8
+      2    4.9%          LazyCompile: ~lazyLoadStreams node:fs:2907:25
+      2  100.0%            LazyCompile: ~get ReadStream node:fs:3050:17
+      2    4.9%          Function: ~<anonymous> node:internal/child_process:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    4.9%          Function: ~<anonymous> node:cluster:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    4.9%          Function: ~<anonymous> node:child_process:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2    4.9%          Function: ~<anonymous> node:assert:1:1
+      2  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          LazyCompile: ~initializeCJSLoader node:internal/process/pre_execution:535:29
+      1  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1    2.4%          LazyCompile: ~get node:dns:350:8
+      1  100.0%            /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1    2.4%          Function: ~<anonymous> node:worker_threads:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          Function: ~<anonymous> node:tty:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          Function: ~<anonymous> node:module:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          Function: ~<anonymous> node:dns:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          Function: ~<anonymous> node:dgram:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          Function: ~<anonymous> node:_tls_wrap:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          Function: ~<anonymous> node:_tls_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    2.4%          Function: ~<anonymous> node:_http_common:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+     16   28.1%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+     16  100.0%          Function: ^loadBuiltinModule node:internal/modules/cjs/helpers:45:27
+     16  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:807:24
+     38    4.0%      LazyCompile: ~configSecureContext node:internal/tls/secure-context:124:29
+     38  100.0%        LazyCompile: ~createSecureContext node:_tls_common:99:29
+     38  100.0%          LazyCompile: ~connect node:_tls_wrap:1605:35
+     38  100.0%            LazyCompile: ~makeConnection /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:256:24
+     30    3.2%      /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      4   13.3%        Function: ^readPackage node:internal/modules/cjs/loader:326:21
+      4  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:368:26
+      2   50.0%            Function: ^trySelf node:internal/modules/cjs/loader:488:17
+      2   50.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      3   10.0%        LazyCompile: ~resolvePackageTargetString node:internal/modules/esm/resolve:396:36
+      3  100.0%          LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:490:30
+      3  100.0%            LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:490:30
+      3   10.0%        Function: ^Module node:internal/modules/cjs/loader:197:16
+      3  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      3  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1053:36
+      2    6.7%        Function: ^compileFunction node:vm:316:25
+      2  100.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1073:18
+      2  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      2    6.7%        Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      2  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      2  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1053:36
+      1    3.3%        LazyCompile: ~translatePeerCertificate node:_tls_common:125:34
+      1  100.0%          LazyCompile: ~translatePeerCertificate node:_tls_common:125:34
+      1  100.0%            LazyCompile: ~TLSSocket.getPeerCertificate node:_tls_wrap:992:50
+      1    3.3%        LazyCompile: ~parse /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/semver/functions/parse.js:6:15
+      1  100.0%          LazyCompile: ~get_node_abi /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:56:22
+      1  100.0%            LazyCompile: ~get_runtime_abi /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:76:25
+      1    3.3%        LazyCompile: ~isIPv6 node:internal/net:38:16
+      1  100.0%          LazyCompile: ~isIP node:internal/net:45:14
+      1  100.0%            LazyCompile: ~parseSslOptions /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:237:25
+      1    3.3%        LazyCompile: ~getOwn node:internal/bootstrap/loaders:187:16
+      1  100.0%          LazyCompile: ~syncExports node:internal/bootstrap/loaders:304:14
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:290:15
+      1    3.3%        LazyCompile: ~executeWithoutEncryptedFieldsCheck /home/cisc0/Code/backend/node_modules/mongodb/lib/operations/create_collection.js:74:39
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/operations/create_collection.js:39:10
+      1  100.0%            LazyCompile: ~execute /home/cisc0/Code/backend/node_modules/mongodb/lib/operations/create_collection.js:38:12
+      1    3.3%        LazyCompile: ~deserializeObject /home/cisc0/Code/backend/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%          LazyCompile: ~deserialize /home/cisc0/Code/backend/node_modules/bson/lib/parser/deserializer.js:36:21
+      1  100.0%            LazyCompile: ~deserialize /home/cisc0/Code/backend/node_modules/bson/lib/bson.js:161:21
+      1    3.3%        LazyCompile: ~db /home/cisc0/Code/backend/node_modules/mongodb/lib/mongo_client.js:214:7
+      1  100.0%          LazyCompile: ~_setClient /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:859:20
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:810:20
+      1    3.3%        LazyCompile: ~checkCollectionName /home/cisc0/Code/backend/node_modules/mongodb/lib/utils.js:22:29
+      1  100.0%          LazyCompile: ~Collection /home/cisc0/Code/backend/node_modules/mongodb/lib/collection.js:64:16
+      1  100.0%            LazyCompile: ~collection /home/cisc0/Code/backend/node_modules/mongodb/lib/db.js:195:15
+      1    3.3%        LazyCompile: ~Run /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:78:13
+      1  100.0%          LazyCompile: ~exports.find /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/bcrypt/bcrypt.js:1:1
+      1    3.3%        LazyCompile: ~Connection.openUri /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:681:40
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/index.js:416:49
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/promiseOrCallback.js:40:22
+      1    3.3%        LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/pluralize.js:86:34
+      1  100.0%          /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1  100.0%            LazyCompile: ~pluralize /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/pluralize.js:82:19
+      1    3.3%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/source-map/lib/base64.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    3.3%        Function: ^toIdentifier /home/cisc0/Code/backend/node_modules/toidentifier/index.js:24:23
+      1  100.0%          LazyCompile: ~forEachCode /home/cisc0/Code/backend/node_modules/http-errors/index.js:259:38
+      1  100.0%            /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1    3.3%        Function: ^stat node:internal/modules/cjs/loader:158:14
+      1  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:431:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:447:23
+      1    3.3%        Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      1  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      1    3.3%        Function: ^FastBuffer node:internal/buffer:958:14
+      1  100.0%          Function: ^createUnsafeBuffer node:internal/buffer:1059:28
+      1  100.0%            Function: ^createPool node:buffer:155:20
+     12    1.3%      Function: ^stat node:internal/modules/cjs/loader:158:14
+      7   58.3%        Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      7  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      7  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      5   41.7%        Function: ^tryFile node:internal/modules/cjs/loader:431:17
+      4   80.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:447:23
+      3   75.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      1   25.0%            LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:541:28
+      1   20.0%          Function: ^tryPackage node:internal/modules/cjs/loader:385:20
+      1  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+     10    1.1%      Function: ^Module._load node:internal/modules/cjs/loader:807:24
+     10  100.0%        Function: ^Module.require node:internal/modules/cjs/loader:1053:36
+     10  100.0%          Function: ^require node:internal/modules/cjs/helpers:102:31
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/whatwg-url/lib/URL.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/tr46/index.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/pino/pino.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/types/array/methods/index.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/index.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/server.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/handlebars/dist/cjs/handlebars.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/express/lib/application.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/nopt/lib/nopt.js:1:1
+      1   10.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/gauge/render-template.js:1:1
+
+    248   15.1%  epoll_pwait@@GLIBC_2.6
+
+     61    3.7%  __write@@GLIBC_2.2.5
+     49   80.3%    /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      4    8.2%      /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1   25.0%        LazyCompile: ~colorSupport /home/cisc0/Code/backend/node_modules/color-support/index.js:39:23
+      1  100.0%          Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/gauge/has-color.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1   25.0%        LazyCompile: ~Kareem.filter /home/cisc0/Code/backend/node_modules/kareem/index.js:435:35
+      1  100.0%          LazyCompile: ~applyHooks /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/model/applyHooks.js:40:20
+      1  100.0%            LazyCompile: ~compile /home/cisc0/Code/backend/node_modules/mongoose/lib/model.js:5014:33
+      1   25.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/depd/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1   25.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/debug/src/node.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      2    4.1%      LazyCompile: ~Gauge /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/gauge/index.js:19:16
+      2  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/npmlog/log.js:1:1
+      2  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      2  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      2    4.1%      Function: ^<anonymous> node:internal/validators:401:42
+      2  100.0%        Function: ^compileFunction node:vm:316:25
+      2  100.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1073:18
+      2  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1    2.0%      LazyCompile: ~utf8PercentEncodeCodePointInternal /home/cisc0/Code/backend/node_modules/whatwg-url/lib/percent-encoding.js:97:44
+      1  100.0%        LazyCompile: ~utf8PercentEncodeCodePoint /home/cisc0/Code/backend/node_modules/whatwg-url/lib/percent-encoding.js:112:36
+      1  100.0%          LazyCompile: ~parseAuthority /home/cisc0/Code/backend/node_modules/whatwg-url/lib/url-state-machine.js:731:71
+      1  100.0%            Function: ^URLStateMachine /home/cisc0/Code/backend/node_modules/whatwg-url/lib/url-state-machine.js:481:25
+      1    2.0%      LazyCompile: ~updateSessionFromResponse /home/cisc0/Code/backend/node_modules/mongodb/lib/sessions.js:713:35
+      1  100.0%        LazyCompile: ~onMessage /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1  100.0%            Function: ^emit node:events:460:44
+      1    2.0%      LazyCompile: ~setOption /home/cisc0/Code/backend/node_modules/mongodb/lib/connection_string.js:407:19
+      1  100.0%        LazyCompile: ~parseOptions /home/cisc0/Code/backend/node_modules/mongodb/lib/connection_string.js:195:22
+      1  100.0%          LazyCompile: ~MongoClient /home/cisc0/Code/backend/node_modules/mongodb/lib/mongo_client.js:43:16
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:799:31
+      1    2.0%      LazyCompile: ~set /home/cisc0/Code/backend/node_modules/express/lib/application.js:359:23
+      1  100.0%        LazyCompile: ~defaultConfiguration /home/cisc0/Code/backend/node_modules/express/lib/application.js:77:57
+      1  100.0%          LazyCompile: ~init /home/cisc0/Code/backend/node_modules/express/lib/application.js:64:25
+      1  100.0%            LazyCompile: ~createApplication /home/cisc0/Code/backend/node_modules/express/lib/express.js:37:27
+      1    2.0%      LazyCompile: ~serverUpdateHandler /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology.js:320:24
+      1  100.0%        LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology.js:480:53
+      1  100.0%          Function: ^emit node:events:460:44
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/server.js:61:55
+      1    2.0%      LazyCompile: ~serialize /home/cisc0/Code/backend/node_modules/bson/lib/bson.js:110:19
+      1  100.0%        LazyCompile: ~toBin /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/commands.js:82:10
+      1  100.0%          LazyCompile: ~writeCommand /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/message_stream.js:40:17
+      1  100.0%            LazyCompile: ~write /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:427:15
+      1    2.0%      LazyCompile: ~realpathSync node:fs:2474:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:440:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:541:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    2.0%      LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:368:26
+      1  100.0%        LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%          LazyCompile: ~Module.load node:internal/modules/cjs/loader:1025:33
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:807:24
+      1    2.0%      LazyCompile: ~proto.<computed> /home/cisc0/Code/backend/node_modules/express/lib/router/index.js:519:27
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/desafio16/routes.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    2.0%      LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.0%      LazyCompile: ~patch /home/cisc0/Code/backend/node_modules/graceful-fs/graceful-fs.js:102:16
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/graceful-fs/graceful-fs.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    2.0%      LazyCompile: ~parse /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/nopt/lib/nopt.js:242:16
+      1  100.0%        LazyCompile: ~nopt /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/nopt/lib/nopt.js:26:15
+      1  100.0%          LazyCompile: ~parseOpts /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:144:37
+      1  100.0%            LazyCompile: ~Run /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/node-pre-gyp.js:78:13
+      1    2.0%      LazyCompile: ~packageExportsResolve node:internal/modules/esm/resolve:596:31
+      1  100.0%        Function: ^resolveExports node:internal/modules/cjs/loader:519:24
+      1  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:541:28
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      1    2.0%      LazyCompile: ~module.exports /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/gauge/plumbing.js:6:42
+      1  100.0%        LazyCompile: ~Gauge /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/gauge/index.js:19:16
+      1  100.0%          Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/npmlog/log.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1    2.0%      LazyCompile: ~logger node:internal/util/debuglog:95:18
+      1  100.0%        LazyCompile: ~onWriteComplete node:internal/stream_base_commons:80:25
+      1    2.0%      LazyCompile: ~handleError /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/server.js:221:16
+      1  100.0%        LazyCompile: ~handleOperationResult /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/server.js:327:42
+      1  100.0%          LazyCompile: ~onMessage /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1    2.0%      LazyCompile: ~getIndexes /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/schema/getIndexes.js:14:37
+      1  100.0%        LazyCompile: ~Schema.indexes /home/cisc0/Code/backend/node_modules/mongoose/lib/schema.js:2050:36
+      1  100.0%          LazyCompile: ~_ensureIndexes /home/cisc0/Code/backend/node_modules/mongoose/lib/model.js:1805:24
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/model.js:1765:52
+      1    2.0%      LazyCompile: ~exports.find /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/bcrypt/bcrypt.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    2.0%      LazyCompile: ~exports.each /home/cisc0/Code/backend/node_modules/mongoose/lib/utils.js:951:24
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/document.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    2.0%      LazyCompile: ~deserialize /home/cisc0/Code/backend/node_modules/bson/lib/bson.js:161:21
+      1  100.0%        LazyCompile: ~parse /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/commands.js:222:10
+      1  100.0%          LazyCompile: ~onMessage /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1    2.0%      LazyCompile: ~createHash node:crypto:132:20
+      1  100.0%        LazyCompile: ~passwordDigest /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:182:24
+      1  100.0%          LazyCompile: ~continueScramConversation /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:85:80
+      1    2.0%      LazyCompile: ~continueScramConversation /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1  100.0%        LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:85:80
+      1  100.0%          LazyCompile: ~onMessage /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1    2.0%      LazyCompile: ~assertEncoding node:internal/fs/utils:156:24
+      1  100.0%        LazyCompile: ~getOptions node:internal/fs/utils:319:20
+      1  100.0%          LazyCompile: ~readFileSync node:fs:465:22
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    2.0%      LazyCompile: ~Writable node:internal/streams/writable:220:18
+      1  100.0%        LazyCompile: ~Duplex node:internal/streams/duplex:54:16
+      1  100.0%          LazyCompile: ~Socket node:net:329:16
+      1  100.0%            LazyCompile: ~WriteStream node:tty:84:21
+      1    2.0%      LazyCompile: ~Socket.connect node:net:1061:36
+      1  100.0%        LazyCompile: ~connect node:_tls_wrap:1605:35
+      1  100.0%          LazyCompile: ~makeConnection /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:256:24
+      1  100.0%            LazyCompile: ~connect /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1    2.0%      LazyCompile: ~Server /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/server.js:29:16
+      1  100.0%        LazyCompile: ~createAndConnectServer /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology.js:474:32
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology.js:173:57
+      1  100.0%            /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1    2.0%      LazyCompile: ~Schema.path /home/cisc0/Code/backend/node_modules/mongoose/lib/schema.js:894:33
+      1  100.0%        LazyCompile: ~add /home/cisc0/Code/backend/node_modules/mongoose/lib/schema.js:580:36
+      1  100.0%          LazyCompile: ~Schema /home/cisc0/Code/backend/node_modules/mongoose/lib/schema.js:96:16
+      1  100.0%            Function: ~<anonymous> /home/cisc0/Code/backend/desafio16/models.js:1:1
+      1    2.0%      LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:541:28
+      1  100.0%        LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:904:35
+      1  100.0%          LazyCompile: ~Module._load node:internal/modules/cjs/loader:807:24
+      1  100.0%            LazyCompile: ~Module.require node:internal/modules/cjs/loader:1053:36
+      1    2.0%      LazyCompile: ~Module node:internal/modules/cjs/loader:197:16
+      1  100.0%        LazyCompile: ~Module._load node:internal/modules/cjs/loader:807:24
+      1  100.0%          LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:74:31
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.0%      LazyCompile: ~Long.isLong /home/cisc0/Code/backend/node_modules/bson/lib/long.js:236:28
+      1  100.0%        LazyCompile: ~Long.equals /home/cisc0/Code/backend/node_modules/bson/lib/long.js:428:38
+      1  100.0%          LazyCompile: ~Long.eq /home/cisc0/Code/backend/node_modules/bson/lib/long.js:436:34
+      1  100.0%            LazyCompile: ~Long.negate /home/cisc0/Code/backend/node_modules/bson/lib/long.js:613:38
+      1    2.0%      LazyCompile: ~Long.fromInt /home/cisc0/Code/backend/node_modules/bson/lib/long.js:98:29
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/bson/lib/long.js:45:36
+      1  100.0%          Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/bson/lib/long.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1    2.0%      LazyCompile: ~HostAddress /home/cisc0/Code/backend/node_modules/mongodb/lib/utils.js:871:16
+      1  100.0%        Function: ^fromString /home/cisc0/Code/backend/node_modules/mongodb/lib/utils.js:929:22
+      1  100.0%          LazyCompile: ~fromHostPort /home/cisc0/Code/backend/node_modules/mongodb/lib/utils.js:932:24
+      1  100.0%            LazyCompile: ~streamIdentifier /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:415:26
+      1    2.0%      LazyCompile: ~Collection /home/cisc0/Code/backend/node_modules/mongoose/lib/collection.js:22:20
+      1  100.0%        LazyCompile: ~NativeCollection /home/cisc0/Code/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:24:26
+      1  100.0%          LazyCompile: ~Connection.collection /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:1091:43
+      1  100.0%            LazyCompile: ~compile /home/cisc0/Code/backend/node_modules/mongoose/lib/model.js:5014:33
+      1    2.0%      Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%        LazyCompile: ~initializeCJSLoader node:internal/process/pre_execution:535:29
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    2.0%      Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/object-assign/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1    2.0%      Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1    2.0%      Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/connection_string.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1    2.0%      Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/handlebars/dist/cjs/handlebars/compiler/visitor.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1    2.0%      Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1    2.0%      Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/glob/node_modules/minimatch/minimatch.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1    2.0%      Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+      1  100.0%        Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      1  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1053:36
+      1  100.0%            Function: ^require node:internal/modules/cjs/helpers:102:31
+
+     35    2.1%  fwrite@@GLIBC_2.2.5
+     30   85.7%    /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      2    6.7%      LazyCompile: ~patchProcessObject node:internal/process/pre_execution:112:28
+      2  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      2  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2    6.7%      Function: ^onStreamRead node:internal/stream_base_commons:167:22
+      2    6.7%      /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1   50.0%        LazyCompile: ~getStack /home/cisc0/Code/backend/node_modules/depd/index.js:381:19
+      1  100.0%          LazyCompile: ~depd /home/cisc0/Code/backend/node_modules/depd/index.js:103:15
+      1  100.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/express/node_modules/body-parser/index.js:1:1
+      1   50.0%        LazyCompile: ~getOwn node:internal/bootstrap/loaders:187:16
+      1  100.0%          LazyCompile: ~syncExports node:internal/bootstrap/loaders:304:14
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/bootstrap/loaders:290:15
+      1    3.3%      LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1073:18
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:1025:33
+      1    3.3%      LazyCompile: ~toRealPath node:internal/modules/cjs/loader:440:20
+      1  100.0%        LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:541:28
+      1  100.0%          LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:74:31
+      1    3.3%      LazyCompile: ~setupPerfHooks node:internal/process/pre_execution:367:24
+      1  100.0%        LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%          Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    3.3%      LazyCompile: ~setUnrefTimeout node:internal/timers:377:25
+      1  100.0%        LazyCompile: ~setStreamTimeout node:internal/stream_base_commons:237:26
+      1  100.0%          LazyCompile: ~makeConnection /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:256:24
+      1  100.0%            LazyCompile: ~connect /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1    3.3%      LazyCompile: ~set hello /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:79:14
+      1  100.0%        /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:88:85
+      1  100.0%            LazyCompile: ~onMessage /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1    3.3%      LazyCompile: ~require node:internal/modules/cjs/helpers:102:31
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/desafio16/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    3.3%      LazyCompile: ~realpathSync node:fs:2474:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:440:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:541:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    3.3%      LazyCompile: ~pushAsyncContext node:internal/async_hooks:539:26
+      1  100.0%        LazyCompile: ~emitBeforeScript node:internal/async_hooks:509:26
+      1  100.0%          LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:67:35
+      1    3.3%      LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    3.3%      LazyCompile: ~prepare /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:16:12
+      1  100.0%        LazyCompile: ~prepareHandshakeDocument /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:151:34
+      1  100.0%          LazyCompile: ~performInitialHandshake /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:62:33
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:31:63
+      1    3.3%      LazyCompile: ~parseSslOptions /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:237:25
+      1  100.0%        LazyCompile: ~makeConnection /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:256:24
+      1  100.0%          LazyCompile: ~connect /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:30:17
+      1  100.0%            LazyCompile: ~checkServer /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/monitor.js:143:21
+      1    3.3%      LazyCompile: ~module.exports.evaluate /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:277:35
+      1  100.0%        LazyCompile: ~exports.find /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%          Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/bcrypt/bcrypt.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1    3.3%      LazyCompile: ~ensureBuffer /home/cisc0/Code/backend/node_modules/bson/lib/ensure_buffer.js:15:22
+      1  100.0%        LazyCompile: ~Binary /home/cisc0/Code/backend/node_modules/bson/lib/binary.js:42:20
+      1  100.0%          Function: ^deserializeObject /home/cisc0/Code/backend/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%            Function: ^deserializeObject /home/cisc0/Code/backend/node_modules/bson/lib/parser/deserializer.js:65:27
+      1    3.3%      LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%        LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%          Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/debug/src/node.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1    3.3%      LazyCompile: ~assertEncoding node:internal/fs/utils:156:24
+      1  100.0%        LazyCompile: ~getOptions node:internal/fs/utils:319:20
+      1  100.0%          LazyCompile: ~readFileSync node:fs:465:22
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    3.3%      LazyCompile: ~URLStateMachine /home/cisc0/Code/backend/node_modules/whatwg-url/lib/url-state-machine.js:481:25
+      1  100.0%        LazyCompile: ~module.exports.basicURLParse /home/cisc0/Code/backend/node_modules/whatwg-url/lib/url-state-machine.js:1206:41
+      1  100.0%          LazyCompile: ~URLImpl /home/cisc0/Code/backend/node_modules/whatwg-url/lib/URL-impl.js:7:14
+      1  100.0%            LazyCompile: ~exports.setup /home/cisc0/Code/backend/node_modules/whatwg-url/lib/URL.js:49:17
+      1    3.3%      LazyCompile: ~SonicBoom /home/cisc0/Code/backend/node_modules/sonic-boom/index.js:85:20
+      1  100.0%        LazyCompile: ~buildSafeSonicBoom /home/cisc0/Code/backend/node_modules/pino/lib/tools.js:219:29
+      1  100.0%          LazyCompile: ~module.exports.destination /home/cisc0/Code/backend/node_modules/pino/pino.js:194:30
+      1  100.0%            Function: ~<anonymous> /home/cisc0/Code/backend/desafio16/index.js:1:1
+      1    3.3%      LazyCompile: ~Hmac node:internal/crypto/hash:131:14
+      1  100.0%        LazyCompile: ~createHmac node:crypto:164:20
+      1  100.0%          LazyCompile: ~HMAC /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:225:14
+      1  100.0%            LazyCompile: ~continueScramConversation /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:93:35
+      1    3.3%      LazyCompile: ~<anonymous> node:internal/fs/utils:361:35
+      1  100.0%        LazyCompile: ~<anonymous> node:internal/fs/utils:674:38
+      1  100.0%          LazyCompile: ~realpathSync node:fs:2474:22
+      1  100.0%            LazyCompile: ~toRealPath node:internal/modules/cjs/loader:440:20
+      1    3.3%      LazyCompile: ~<anonymous> node:internal/dns/promises:266:22
+      1  100.0%        /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1  100.0%          LazyCompile: ~createResolverPromise node:internal/dns/promises:265:31
+      1  100.0%            LazyCompile: ~query node:internal/dns/promises:294:17
+      1    3.3%      LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/model.js:1473:85
+      1  100.0%        LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/utils.js:472:18
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/promiseOrCallback.js:11:25
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/utils.js:349:57
+      1    3.3%      LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/auth/scram.js:152:83
+      1  100.0%        LazyCompile: ~onMessage /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:61:44
+      1  100.0%            Function: ^emit node:events:460:44
+      1    3.3%      Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%        Function: ~<anonymous> node:internal/modules/esm/load:1:1
+      1  100.0%          Function: ~<anonymous> node:internal/modules/esm/loader:1:1
+      1  100.0%            Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      1    3.3%      Function: ^processTimers node:internal/timers:492:25
+
+     31    1.9%  /usr/lib/x86_64-linux-gnu/libc-2.31.so
+     27   87.1%    /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      7   25.9%      /home/cisc0/.nvm/versions/node/v18.12.1/bin/node
+      1   14.3%        LazyCompile: ~compileFunction node:vm:316:25
+      1  100.0%          LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1073:18
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1   14.3%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/supports-color/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1   14.3%        Function: ^serializeInto /home/cisc0/Code/backend/node_modules/bson/lib/parser/serializer.js:553:23
+      1  100.0%          Function: ^serializeObject /home/cisc0/Code/backend/node_modules/bson/lib/parser/serializer.js:260:25
+      1  100.0%            Function: ^serializeInto /home/cisc0/Code/backend/node_modules/bson/lib/parser/serializer.js:553:23
+      1   14.3%        Function: ^hasServer /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology_description.js:237:14
+      1  100.0%          Function: ^serverUpdateHandler /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology.js:320:24
+      1  100.0%            Function: ^<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/sdam/topology.js:480:53
+      1   14.3%        Function: ^compileFunction node:vm:316:25
+      1  100.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1073:18
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1   14.3%        Function: ^Module node:internal/modules/cjs/loader:197:16
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1053:36
+      2    7.4%      Function: ^Module._load node:internal/modules/cjs/loader:807:24
+      2  100.0%        Function: ^Module.require node:internal/modules/cjs/loader:1053:36
+      2  100.0%          Function: ^require node:internal/modules/cjs/helpers:102:31
+      1   50.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/semver/internal/re.js:1:1
+      1   50.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/gauge/base-theme.js:1:1
+      1    3.7%      LazyCompile: ~streamIdentifier /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:415:26
+      1  100.0%        LazyCompile: ~Connection /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:38:16
+      1  100.0%          LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:31:63
+      1  100.0%            LazyCompile: ~callback /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connect.js:269:31
+      1    3.7%      LazyCompile: ~resolvePackageTargetString node:internal/modules/esm/resolve:396:36
+      1  100.0%        LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:490:30
+      1  100.0%          LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:490:30
+      1  100.0%            LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:490:30
+      1    3.7%      LazyCompile: ~realpathSync node:fs:2474:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:440:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:541:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    3.7%      LazyCompile: ~readPackage node:internal/modules/cjs/loader:326:21
+      1  100.0%        LazyCompile: ~readPackageScope node:internal/modules/cjs/loader:368:26
+      1  100.0%          LazyCompile: ~shouldUseESMLoader node:internal/modules/run_main:30:28
+      1  100.0%            LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:74:31
+      1    3.7%      LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    3.7%      LazyCompile: ~parse /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/node_modules/semver/functions/parse.js:6:15
+      1  100.0%        LazyCompile: ~module.exports.evaluate /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:277:35
+      1  100.0%          LazyCompile: ~exports.find /home/cisc0/Code/backend/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%            Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/bcrypt/bcrypt.js:1:1
+      1    3.7%      LazyCompile: ~immediate /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/immediate.js:14:36
+      1  100.0%        LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:575:34
+      1  100.0%          LazyCompile: ~promiseOrCallback /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/promiseOrCallback.js:8:44
+      1  100.0%            LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:568:18
+      1    3.7%      LazyCompile: ~deserialize /home/cisc0/Code/backend/node_modules/bson/lib/parser/deserializer.js:36:21
+      1  100.0%        LazyCompile: ~deserialize /home/cisc0/Code/backend/node_modules/bson/lib/bson.js:161:21
+      1  100.0%          LazyCompile: ~parse /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/commands.js:222:10
+      1  100.0%            LazyCompile: ~onMessage /home/cisc0/Code/backend/node_modules/mongodb/lib/cmap/connection.js:157:14
+      1    3.7%      LazyCompile: ~depd /home/cisc0/Code/backend/node_modules/depd/index.js:103:15
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/express/node_modules/body-parser/index.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    3.7%      LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%        LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%          Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/debug/src/node.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1113:37
+      1    3.7%      LazyCompile: ~createHttpErrorConstructor /home/cisc0/Code/backend/node_modules/http-errors/index.js:112:37
+      1  100.0%        Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/http-errors/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1    3.7%      LazyCompile: ~Socket._read node:net:678:34
+      1  100.0%        Function: ^Readable.read node:internal/streams/readable:402:35
+      1  100.0%          Function: ^Socket.read node:net:736:33
+      1  100.0%            LazyCompile: ~maybeReadMore_ node:internal/streams/readable:621:24
+      1    3.7%      LazyCompile: ~Schema.interpretAsType /home/cisc0/Code/backend/node_modules/mongoose/lib/schema.js:1162:44
+      1  100.0%        LazyCompile: ~Schema.path /home/cisc0/Code/backend/node_modules/mongoose/lib/schema.js:894:33
+      1  100.0%          LazyCompile: ~add /home/cisc0/Code/backend/node_modules/mongoose/lib/schema.js:580:36
+      1  100.0%            LazyCompile: ~setupTimestamps /home/cisc0/Code/backend/node_modules/mongoose/lib/helpers/timestamps/setupTimestamps.js:10:42
+      1    3.7%      LazyCompile: ~Duplex node:internal/streams/duplex:54:16
+      1  100.0%        LazyCompile: ~Socket node:net:329:16
+      1  100.0%          LazyCompile: ~WriteStream node:tty:84:21
+      1  100.0%            LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1    3.7%      LazyCompile: ~<anonymous> /home/cisc0/Code/backend/node_modules/mongoose/lib/connection.js:576:17
+      1  100.0%        LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:67:35
+      1    3.7%      LazyCompile: *realpathSync node:fs:2474:22
+      1  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:440:20
+      1  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:431:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:447:23
+      1    3.7%      Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%        LazyCompile: ~initializeCJSLoader node:internal/process/pre_execution:535:29
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/process/pre_execution:36:36
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    3.7%      Function: ~<anonymous> /home/cisc0/Code/backend/node_modules/mquery/lib/mquery.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1113:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1168:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:1025:33
+

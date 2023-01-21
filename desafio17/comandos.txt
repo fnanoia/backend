@@ -1,0 +1,21 @@
+##############
+Desafio 16
+INIT: npm run dev
+
+FORK: pm2 start desafio16/index.js --name="Server1" --watch -- 8081
+
+RUTA: http://localhost:8081/info
+
+PROFILER: npm run profiler
+
+ARTILLERY TEST: artillery quick --count 50 -n 40 http://localhost:8081/info > artillery.txt
+
+AUTOCANNON TEST: node desafio16/benchmark.js 
+
+0X FLAME GRAPHIC: 0x desafio16/index.js
+
+
+
+
+
+
