@@ -86,7 +86,6 @@ const userRoutes = require("./routes/user.routes");
 app.use("/", userRoutes);
 
 const randomRoutes = require("./routes/random.routes");
-const UserModel = require("./db/models");
 app.use("/", randomRoutes);
 
 app.listen(port, () => {
