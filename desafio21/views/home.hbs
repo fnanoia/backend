@@ -1,0 +1,19 @@
+{{#if email}}
+  
+<h1>Welcome {{email}}</h1>
+
+<div class="container">
+<form id="logout_form" method="get" action="/">
+    <button type="submit" id="logout_btn" class="btn btn-secondary">Logout</button>
+</form>
+</div>
+
+{{else}}
+<div class="container"></div>
+<h1>Welcome to handlebars app</h1>
+<p>Please sign in/sign up</p>
+
+<div> <a href="/login">Log in</a></div>
+<div> <a href="/register">Register</a></div>
+</div>
+{{/if}}
