@@ -1,0 +1,14 @@
+{
+  "name": "desafio21",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha _test/user.test.js --exit",
+    "start-test": "nodemon index.js",
+    "start-dev": "node index.js -e DEV",
+    "start-prod": "node index.js -e PROD -p 3000"
+  },
+  "author": "",
+  "license": "ISC"
+}

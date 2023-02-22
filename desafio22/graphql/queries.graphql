@@ -1,0 +1,50 @@
+## Read all users
+query {
+  getUsers {
+    email
+    name
+    age
+    _id
+  }
+}
+
+## Read one user by id
+query {
+  getUserById(_id: "63ef9b7d84ead70f41dbf4a4") {
+    email
+    name
+    age
+  }
+}
+
+## Update one user by id
+mutation {
+  updateUserById(
+    _id: "63f664028ef6638e0cb303f4"
+    data: { name: "jorge", age: 5 }
+  ) {
+    email
+    name
+    age
+  }
+}
+
+## Delete use by id
+mutation {
+  deleteUserById(_id: "63ef9b7d84ead70f41dbf4a4") {
+    email
+    name
+    age
+  }
+}
+
+## Create new user
+mutation {
+  registerUser(
+    data: { name: "graph", email: "gr2@ql", password: "123", age: 2 }
+  ) {
+    email
+    name
+    age
+  }
+}
